@@ -2,7 +2,7 @@ FROM node:alpine as todo-app-build
 
 WORKDIR /client
 
-COPY package.json yarn.lock README.md ./
+COPY package.json yarn.lock ./
 
 RUN yarn
 
