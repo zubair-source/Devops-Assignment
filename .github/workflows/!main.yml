@@ -24,12 +24,12 @@ jobs:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
-          with:
-            images: zubairsource/todo-app
+        with:
+          images: zubairsource/todo-app
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
-          with:
-            push: true
-            tags: ${{ steps.meta.outputs.tags }}
-            labels: ${{ steps.meta.outputs.labels }}       
+        with:
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}       
