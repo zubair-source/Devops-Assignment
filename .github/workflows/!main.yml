@@ -15,15 +15,11 @@ jobs:
       - name: check out the repo
         uses: actions/checkout@v3
 
-      - name: log in docker
-        uses: docker/login-action@v1
+      - name: Build & push Docker image
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: zubairsource/devops-project2:latest, zubairsource/devops-project2:${{ github.run_number }}    
+           image: zubairsoure/devops-assignment-1.0.0
+           tags: v1, latest
+           registry: registry-url.io
+           dockerfile: Dockerfile.ci
+           username: ${{ secrets.DOCKER_USERNAME }}
+           password: ${{ secrets.DOCKER_PASSWORD }    
